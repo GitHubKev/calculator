@@ -1,0 +1,28 @@
+#calculator{
+    margin: auto;
+    width: 25%;
+    border: 2px solid;
+    background-color: black;   
+}
+#display{
+    background-color: orange;
+    height:100px;
+    width: auto;
+    margin: 3px;
+}
+.display-value{
+    text-align: end;
+    padding: 5px;
+}
+#numbers{
+    display: grid;
+    grid-template-columns: repeat(4, 75px);
+    grid-template-rows: repeat(5, 75px);
+    background-color: gray;
+}
+#numbers input{
+    border-radius: 5%;
+}
+#equal{
+    grid-column: 3/5;
+}

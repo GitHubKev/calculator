@@ -47,71 +47,49 @@ function operate(operator, num1, num2){
     }
 }
 
-const displayValue = document.getElementsByClassName("display-value")[0]
+const displayValue = document.querySelector(".display-value")
 const numberButtons = document.querySelectorAll("input") //selects all the input elements and puts into an array
-const storeNumbers = new Array; //creates an array to store numbers that are clicked
 const operatorButtons = document.querySelectorAll(".operator") // selects all the elements with class of operator
 const equalButton = document.getElementById("equal")
 
 numberButtons.forEach(number => { //loops over the array and for each input value
     number.addEventListener("click", function(e){ //add an event listener of "click" which will run the function
         if(number.value === "."){
-            storeNumbers.push(number.value)
-            displayValue.innerHTML = storeNumbers.join("")
+            displayValue.textContent += "." //adds a decimal 
         } else if(number.value === "<--"){
-            alert("im a delete")
+            displayValue.textContent = displayValue.textContent.slice(0,-1) //removes the last digit 
         } else if(number.value === "AC"){
-            alert("im a clear button")
-        } else if (number.value === "="){
-            alert("calculating...")
+            displayValue.textContent = "0" //clears the display back to 0
         } else if(number.value === "%"){
-            alert("im a % sign")
+            displayValue.textContent = (displayValue.textContent)/100 //turns number into a percentage
+        } else if (number.value === "="){
+            secondNum = displayValue.textContent.slice(firstNum.length + 1) // second number is the number that is after the operator
+            displayValue.textContent = operate(operator, parseInt(firstNum), parseInt(secondNum)) //performs the calculation
         }else if (number.className === "operator"){
+            firstNum = displayValue.textContent
             if(number.value === "/"){
                 operator = "divide"
-                alert("im divide")
+                displayValue.textContent += "/"
             } else if (number.value === "-"){
                 operator = "subtract"
-                alert("im subtract")
+                displayValue.textContent += "-"
             } else if (number.value === "*"){
                 operator = "multiply"
-                alert("im multiply")
+                displayValue.textContent += "*"
             } else {
                 operator = "add"
-                alert("im add")
+                displayValue.textContent += "+"
             }
         } else {
-            displayValue.textContent = (number.value)
-            //storeNumbers.push(number.value) //push the value of the input that was clicked into a new array
-            //displayValue.innerHTML = storeNumbers.join(""); //change the innerHTML of the display value with the storeNumbers array but join each value without a space
+            if(displayValue.textContent === "0"){ //the calculator's display will start at 0
+                displayValue.textContent = number.value; //then it will become whatever number is clicked
+            } else {
+                displayValue.textContent += number.value; //afterwards it will join other numbers behind it
+                console.log(displayValue.textContent)
+            }
         }
     });
 });
-
-// operatorButtons.forEach(operator => {
-//     operator.addEventListener("click", function(e){
-//         if(operator.value === "/"){
-//             operator = "divide"
-//             alert("im divide")
-//             displayValue.innerHTML = ""
-//         } else if (operator.value === "-"){
-//             operator = "subtract"
-//             alert("im subtract")
-//         } else if (operator.value === "*"){
-//             operator = "multiply"
-//             alert("im multiply")
-//         } else {
-//             operator = "add"
-//             alert("im add")
-//         }
-//         storeNumbers.push(number.value)
-//         displayValue.innerHTML = storeNumbers.join("")
-//     })
-// })
-
-// equalButton.addEventListener("click", function(){
-//     displayValue.innerHTML = operate(operator, num1, num2)
-// })
 
 
 //enter first number into calc

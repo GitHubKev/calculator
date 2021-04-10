@@ -9,9 +9,7 @@
 </head>
 <body>
     <div id="calculator">
-        <div id="display">
-            <h2 class="display-value">0</h2>
-        </div>
+        <div id="display">0</div>
         <div id="numbers">
             <input type="button" value="AC" class="clear">
             <input type="button" value="<--" class="delete">
@@ -20,16 +18,16 @@
             <input type="button" value="7">
             <input type="button" value="8">
             <input type="button" value="9">
-            <input type="button" value="*" class="operator">
+            <input type="button" value="x" class="operator">
             <input type="button" value="4">
             <input type="button" value="5">
             <input type="button" value="6">
             <input type="button" value="-" class="operator">
-            <input type="button" value="1">
+            <input type="button" value="1" data-key="49">
             <input type="button" value="2">
             <input type="button" value="3">
             <input type="button" value="+" class="operator">
-            <input type="button" value="0">
+            <input type="button" value="0" id="zero">
             <input type="button" value="." class="decimal">
             <input type="button" id="equal" value="=">
         </div>

@@ -9,6 +9,8 @@
     height:100px;
     width: auto;
     margin: 3px;
+    text-align: end;
+    font-size: 80px;
 }
 .display-value{
     text-align: end;
@@ -22,7 +24,17 @@
 }
 #numbers input{
     border-radius: 5%;
+    font-size: 18px;
 }
-#equal{
-    grid-column: 3/5;
+#zero{
+    grid-column: 1/3;
+}
+.pressed{
+    font-weight: 900;
+}
+.operator, #equal{
+    background-color: rgb(245, 130, 16);
+}
+.clear, .delete, .percent{
+background-color: rgb(197, 179, 179);
 }

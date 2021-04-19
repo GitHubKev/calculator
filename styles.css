@@ -1,3 +1,6 @@
+body{
+    background-color: rgb(58, 53, 53);
+}
 #calculator{
     margin: auto;
     width: 300px;
@@ -37,4 +40,7 @@
 }
 .clear, .delete, .percent{
 background-color: rgb(197, 179, 179);
+}
+.is-pressed{
+    background-color: #9c0000;
 }
